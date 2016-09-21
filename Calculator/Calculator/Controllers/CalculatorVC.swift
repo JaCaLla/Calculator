@@ -10,19 +10,56 @@ import UIKit
 
 class CalculatorVC: UIViewController {
     
+    var expression:String = ""
     
     @IBOutlet weak var numericScreen: NumericScreen!{
         didSet{
-            numericScreen.onKeyPress = {
-                key in
-                
-            }
-            
-            numericScreen.backgroundColor = UIColor.redColor()
+
+            numericScreen.lblValue.text = "0"
         }
     }
     
-    @IBOutlet weak var keyPad: Keypad!
+    @IBOutlet weak var keyPad: Keypad!{
+        didSet{
+            keyPad.onKeyPress = {
+                key in
+                
+                switch key {
+                case Key.key0:
+                    self.expression += "0"
+                case Key.key1:
+                    self.expression += "1"
+                case Key.key2:
+                    self.expression += "2"
+                case Key.key3:
+                    self.expression += "3"
+                case Key.key4:
+                    self.expression += "4"
+                case Key.key5:
+                    self.expression += "5"
+                case Key.key6:
+                    self.expression += "6"
+                case Key.key7:
+                    self.expression += "7"
+                case Key.key8:
+                    self.expression += "8"
+                case Key.key9:
+                    self.expression += "9"
+                case Key.keyAdd:
+                    self.expression += "+"
+                case Key.keySubstract:
+                    self.expression += "-"
+                    
+                default: break
+                    
+                }
+            }
+            
+        }
+    }
+    
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

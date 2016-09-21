@@ -24,9 +24,9 @@ class UN_UseCase: XCTestCase {
 
     func test_evaluate() {
         XCTAssertEqual(UseCase.sharedInstance.evaluate(""),0);
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("1+1"),2);
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("1+1-1"),1);
-        
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("12+65-7"),70);
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("+16-2"),84);
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("-4-2"),78);
     }
 
     func testPerformanceExample() {
