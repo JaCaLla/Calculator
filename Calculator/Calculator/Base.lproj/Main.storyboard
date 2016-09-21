@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZBo-ss-Fyf">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--CalculatorVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CalculatorVC" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gu2-Sk-nW2" customClass="Keypad" customModule="Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="164" width="600" height="436"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DS6-VS-PwD" customClass="NumericScreen" customModule="Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="100"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gu2-Sk-nW2" firstAttribute="height" secondItem="DS6-VS-PwD" secondAttribute="height" constant="336" id="B9D-Th-g5M"/>
+                            <constraint firstItem="DS6-VS-PwD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="GWc-xC-MPq"/>
+                            <constraint firstItem="DS6-VS-PwD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="UjD-Mo-U8Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gu2-Sk-nW2" secondAttribute="trailing" constant="-20" id="jMy-QK-7Ml"/>
+                            <constraint firstItem="Gu2-Sk-nW2" firstAttribute="top" secondItem="DS6-VS-PwD" secondAttribute="bottom" id="pEm-NR-5Gs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DS6-VS-PwD" secondAttribute="trailing" constant="-20" id="qMO-Vr-7Ej"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gu2-Sk-nW2" secondAttribute="bottom" id="rSs-zf-cxG"/>
+                            <constraint firstItem="Gu2-Sk-nW2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="s56-NL-ieG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wfc-4l-bbm"/>
+                    <connections>
+                        <outlet property="keyPad" destination="Gu2-Sk-nW2" id="HWm-gB-XUw"/>
+                        <outlet property="numericScreen" destination="DS6-VS-PwD" id="COa-Oz-o7V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="494"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="STB-so-amg">
+            <objects>
+                <navigationController id="ZBo-ss-Fyf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YEe-Si-15X">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hTi-EE-jsp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8j1-6X-EYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1" y="489"/>
+        </scene>
+    </scenes>
+</document>
