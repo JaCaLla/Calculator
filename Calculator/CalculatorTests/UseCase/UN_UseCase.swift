@@ -23,11 +23,30 @@ class UN_UseCase: XCTestCase {
     }
 
     func test_evaluate() {
-        XCTAssertEqual(UseCase.sharedInstance.evaluate(""),0);
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("12+65-7"),70);
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("+16-2"),84);
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("-4-2"),78);
+        UseCase.sharedInstance.clean()
+        XCTAssertEqual(UseCase.sharedInstance.evaluate(""),Double(0));
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("12+65-7"),Double(70))
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("+16-2"),Double(84))
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("-4-2"),Double(78))
+        UseCase.sharedInstance.clean()
+        XCTAssertEqual(UseCase.sharedInstance.evaluate(""),Double(0));
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("12+65-7"),Double(70))
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("+16-2"),Double(84))
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("-4-2"),Double(78))
+        
+        UseCase.sharedInstance.clean()
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("0-"),Double(0))
+        
+        UseCase.sharedInstance.clean()
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("0-1."),Double(-1))
+
+        UseCase.sharedInstance.clean()
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("0-1+"),Double(-1))
+        
     }
+    
+    
+    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

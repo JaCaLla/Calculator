@@ -17,6 +17,8 @@
 		5A16403D1D9300CE0028E8B2 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16403C1D9300CE0028E8B2 /* CalculatorVC.swift */; };
 		5A1640401D93126A0028E8B2 /* NumericScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16403F1D93126A0028E8B2 /* NumericScreen.swift */; };
 		5A1640421D93130C0028E8B2 /* Keypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1640411D93130C0028E8B2 /* Keypad.swift */; };
+		5A6B64BC1D94543C00A71067 /* ExpressionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B64BB1D94543C00A71067 /* ExpressionUtils.swift */; };
+		5A6B64BF1D9454E900A71067 /* UN_ExpressionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B64BE1D9454E900A71067 /* UN_ExpressionUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		5A16403C1D9300CE0028E8B2 /* CalculatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorVC.swift; path = Controllers/CalculatorVC.swift; sourceTree = "<group>"; };
 		5A16403F1D93126A0028E8B2 /* NumericScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumericScreen.swift; path = Controllers/View/NumericScreen.swift; sourceTree = "<group>"; };
 		5A1640411D93130C0028E8B2 /* Keypad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keypad.swift; path = Controllers/View/Keypad.swift; sourceTree = "<group>"; };
+		5A6B64BB1D94543C00A71067 /* ExpressionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpressionUtils.swift; path = Utils/ExpressionUtils.swift; sourceTree = "<group>"; };
+		5A6B64BE1D9454E900A71067 /* UN_ExpressionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UN_ExpressionUtils.swift; path = Utils/UN_ExpressionUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		5A1640061D92FAA40028E8B2 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				5A6B64BA1D94541000A71067 /* Utils */,
 				5A16403B1D9300120028E8B2 /* Controllers */,
 				5A1640351D92FAEF0028E8B2 /* UseCase */,
 				5A1640071D92FAA40028E8B2 /* AppDelegate.swift */,
@@ -117,6 +122,7 @@
 		5A16401B1D92FAA40028E8B2 /* CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				5A6B64BD1D9454AF00A71067 /* Utils */,
 				5A1640381D92FBDB0028E8B2 /* UseCase */,
 				5A16401E1D92FAA40028E8B2 /* Info.plist */,
 			);
@@ -164,6 +170,22 @@
 				5A16403F1D93126A0028E8B2 /* NumericScreen.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		5A6B64BA1D94541000A71067 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5A6B64BB1D94543C00A71067 /* ExpressionUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		5A6B64BD1D9454AF00A71067 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5A6B64BE1D9454E900A71067 /* UN_ExpressionUtils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +324,7 @@
 				5A1640371D92FB5E0028E8B2 /* UseCase.swift in Sources */,
 				5A1640421D93130C0028E8B2 /* Keypad.swift in Sources */,
 				5A1640081D92FAA40028E8B2 /* AppDelegate.swift in Sources */,
+				5A6B64BC1D94543C00A71067 /* ExpressionUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6B64BF1D9454E900A71067 /* UN_ExpressionUtils.swift in Sources */,
 				5A16403A1D92FCA20028E8B2 /* UN_UseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +552,7 @@
 				5A16402E1D92FAA40028E8B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A16402F1D92FAA40028E8B2 /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +561,7 @@
 				5A1640311D92FAA40028E8B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A1640321D92FAA40028E8B2 /* Build configuration list for PBXNativeTarget "CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +570,7 @@
 				5A1640341D92FAA40028E8B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

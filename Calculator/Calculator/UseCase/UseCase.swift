@@ -16,17 +16,31 @@ class UseCase {
     private init() {
     }
     
+    func clean(){
+        self.lastValue = "0+"
+    }
+    
     func evaluate(expression:String)->Double{
 
-        guard expression.characters.count > 0 else{
+        var expressionToEvaluate = String(expression)
+        
+        guard expressionToEvaluate.characters.count > 0 else{
             return 0;
         }
         
-        let result = NSExpression(format: "\(self.lastValue)" + expression).expressionValueWithObject(nil, context: nil) as! NSNumber
+        if ExpressionUtils.sharedInstance.isEndingWithSubstract(expressionToEvaluate) ||
+           ExpressionUtils.sharedInstance.isEndingWithPoint(expressionToEvaluate) ||
+           ExpressionUtils.sharedInstance.isEndingWithAdd(expressionToEvaluate) {
+            expressionToEvaluate = expressionToEvaluate.substringToIndex(expressionToEvaluate.endIndex.predecessor())
+        }
+        
+        let result = NSExpression(format: "\(self.lastValue)" + expressionToEvaluate).expressionValueWithObject(nil, context: nil) as! NSNumber
         
         self.lastValue = String(result.stringValue)
         
         return result.doubleValue
 
     }
+    
+
 }

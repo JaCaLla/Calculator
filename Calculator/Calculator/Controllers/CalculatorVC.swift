@@ -10,11 +10,11 @@ import UIKit
 
 class CalculatorVC: UIViewController {
     
-    var expression:String = ""
+    var expression:String = "0"
     
     @IBOutlet weak var numericScreen: NumericScreen!{
         didSet{
-            numericScreen.value = "0"
+            numericScreen.value = self.expression
         }
     }
     
@@ -23,49 +23,19 @@ class CalculatorVC: UIViewController {
             keyPad.onKeyPress = {
                 key in
                 
-                switch key {
-                case Key.key0:
-                    self.expression += "0"
-                case Key.key1:
-                    self.expression += "1"
-                case Key.key2:
-                    self.expression += "2"
-                case Key.key3:
-                    self.expression += "3"
-                case Key.key4:
-                    self.expression += "4"
-                case Key.key5:
-                    self.expression += "5"
-                case Key.key6:
-                    self.expression += "6"
-                case Key.key7:
-                    self.expression += "7"
-                case Key.key8:
-                    self.expression += "8"
-                case Key.key9:
-                    self.expression += "9"
-                case Key.keyAdd:
-                    self.expression += "+"
-                case Key.keySubstract:
-                    self.expression += "-"
-                case Key.keyPoint:
-                    self.expression += "."
-                default:
-                    break
-                }
+                self.expression = ExpressionUtils.sharedInstance.addKeyToExpression(key, expression: self.expression)
                 
-                if (key == Key.keyEqual){
+                if (key == Key.keyEqual && !ExpressionUtils.sharedInstance.isInitialExpression(self.expression)){
                     self.expression = String(UseCase.sharedInstance.evaluate(self.expression))
                 }
                 self.numericScreen.value = self.expression
+                
             }
-            
-            
             
         }
     }
     
-   
+    
     
     
     override func viewDidLoad() {
@@ -81,5 +51,5 @@ class CalculatorVC: UIViewController {
     
     // MARK :  Private
     
-
+    
 }
