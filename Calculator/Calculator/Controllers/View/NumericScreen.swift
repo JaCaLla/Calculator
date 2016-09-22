@@ -9,8 +9,14 @@
 import UIKit
 
 class NumericScreen: UIView {
+    
+    var value:String = "0"{
+        didSet{
+            lblValue.text=value
+        }
+    }
  
-    @IBOutlet weak var lblValue: UILabel!
+    @IBOutlet private weak var lblValue: UILabel!
     
     
 }

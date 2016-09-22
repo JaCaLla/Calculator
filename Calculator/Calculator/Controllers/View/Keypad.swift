@@ -22,6 +22,7 @@ enum Key: Int {
     case keyAdd
     case keySubstract
     case keyEqual
+    case keyPoint
 }
 
 class Keypad: UIView {
@@ -104,6 +105,11 @@ class Keypad: UIView {
         }
     }
     
+    @IBOutlet weak var btnKeyPoint: UIButton!{
+        didSet{
+            btnKeyPoint.tag = Key.keyPoint.rawValue
+        }
+    }
     
     var onKeyPress: ((Key) -> Void)?
     

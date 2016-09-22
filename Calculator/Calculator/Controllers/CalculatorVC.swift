@@ -14,8 +14,7 @@ class CalculatorVC: UIViewController {
     
     @IBOutlet weak var numericScreen: NumericScreen!{
         didSet{
-
-            numericScreen.lblValue.text = "0"
+            numericScreen.value = "0"
         }
     }
     
@@ -49,11 +48,19 @@ class CalculatorVC: UIViewController {
                     self.expression += "+"
                 case Key.keySubstract:
                     self.expression += "-"
-                    
-                default: break
-                    
+                case Key.keyPoint:
+                    self.expression += "."
+                default:
+                    break
                 }
+                
+                if (key == Key.keyEqual){
+                    self.expression = String(UseCase.sharedInstance.evaluate(self.expression))
+                }
+                self.numericScreen.value = self.expression
             }
+            
+            
             
         }
     }

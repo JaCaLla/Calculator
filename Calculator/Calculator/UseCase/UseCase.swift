@@ -16,7 +16,7 @@ class UseCase {
     private init() {
     }
     
-    func evaluate(expression:String)->Int{
+    func evaluate(expression:String)->Double{
 
         guard expression.characters.count > 0 else{
             return 0;
@@ -26,7 +26,7 @@ class UseCase {
         
         self.lastValue = String(result.stringValue)
         
-        return result.integerValue
+        return result.doubleValue
 
     }
 }
