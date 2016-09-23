@@ -17,53 +17,40 @@ class ExpressionUtils {
     
     
     func addKeyToExpression(key:Key,expression:String) -> String{
-        guard self.isValidKeyForExpression(key, expression: expression) else {
-            return expression
-        }
-        
+ 
         var expressionToProcess = String(expression)
         
-        switch key {
-        case Key.key0:
-            expressionToProcess += "0"
-        case Key.key1:
-            expressionToProcess += "1"
-        case Key.key2:
-            expressionToProcess += "2"
-        case Key.key3:
-            expressionToProcess += "3"
-        case Key.key4:
-            expressionToProcess += "4"
-        case Key.key5:
-            expressionToProcess += "5"
-        case Key.key6:
-            expressionToProcess += "6"
-        case Key.key7:
-            expressionToProcess += "7"
-        case Key.key8:
-            expressionToProcess += "8"
-        case Key.key9:
-            expressionToProcess += "9"
-        case Key.keyAdd:
-            if self.isEndingWithSubstract(expressionToProcess){
-                expressionToProcess = self.replaceLastKeyIntoExpression(key, expression: expressionToProcess)
-            }else if !self.isEndingWithAdd(expressionToProcess){
-                expressionToProcess += "+"
+        if(self.isInitialExpression(expressionToProcess)){
+            if(key.isDigit){
+                expressionToProcess = key.description
+            }else if( key.rawValue == Key.keyPoint.rawValue ){
+                expressionToProcess += key.description
             }
-        case Key.keySubstract:
-            if self.isEndingWithAdd(expressionToProcess){
-                expressionToProcess = self.replaceLastKeyIntoExpression(key, expression: expressionToProcess)
-            }else if !self.isEndingWithSubstract(expressionToProcess){
-                expressionToProcess += "-"
+        }else if(self.isInitialExpressionFollowedByOperator(expressionToProcess)){
+            if(key.isDigit){
+                expressionToProcess = key.description
+            }else if(key.rawValue == Key.keyAdd.rawValue || key.rawValue == Key.keySubstract.rawValue ){
+                 expressionToProcess = "0"
+            }else if( key.rawValue == Key.keyPoint.rawValue ){
+                expressionToProcess = "0."
             }
-        case Key.keyPoint:
-            if self.isEndingWithOperator(expressionToProcess){
-                expressionToProcess += "0."
+        }else if(self.isEndingWithOperator(expressionToProcess)){
+            if(key.isOperator  ){
+                 expressionToProcess = self.replaceLastKeyIntoExpression(key, expression: expressionToProcess)
+            }else if(key.rawValue == Key.keyPoint.rawValue){
+                 expressionToProcess += "0."
             }else{
-                expressionToProcess += "."
+                expressionToProcess += key.description
             }
-        default:
-            break
+        }else if(self.isLastComponentInteger(expressionToProcess)){
+             expressionToProcess += key.description
+        }else if(self.isLastComponentReal(expression)){
+            if(self.isEndingWithPoint(expressionToProcess) &&
+                (key.isOperator || key.rawValue == Key.keyPoint.rawValue )){
+                 expressionToProcess = self.replaceLastKeyIntoExpression(key, expression: expressionToProcess)
+            }else  if(key.isDigit || key.isOperator){
+                expressionToProcess += key.description
+            }
         }
         
         return expressionToProcess;
@@ -106,10 +93,16 @@ class ExpressionUtils {
         
         return expressionToProcess;
     }
-    
+    /*
     func isValidKeyForExpression(key:Key,expression:String) -> Bool {
         
+        if((self.isEndingWithPoint(expression) && self.isPointKey(key))){
+            return false
+        }
+       
         if(self.isInitialExpression(expression)){
+            return self.isDigitKey(key)  || self.isPointKey(key) || self.isEqualKey(key) || self.isAddKey(key) || self.isSubstractKey(key)
+        }else if(self.isInitialExpressionFollowedByOperator(expression)){
             return self.isDigitKey(key)  || self.isPointKey(key) || self.isEqualKey(key) || self.isAddKey(key) || self.isSubstractKey(key)
         }else if(self.isLastComponentNatural(expression)){
             return self.isDigitKey(key)  || self.isPointKey(key) || self.isEqualKey(key) || self.isAddKey(key) || self.isSubstractKey(key)
@@ -123,11 +116,18 @@ class ExpressionUtils {
     
         return false
     }
-    
+    */
 
     
     func isInitialExpression(expression:String) -> Bool{
-        return expression == "0+";
+        return expression == "0";
+    }
+
+    func isInitialExpressionFollowedByOperator(expression:String) -> Bool{
+        if (expression.characters.count==2){
+            return expression.characters.first == "0" && (self.isEndingWithOperator(expression));
+        }
+        return false
     }
     
     func isLastComponentNatural(expression:String) -> Bool{

@@ -26,7 +26,7 @@ class CalculatorVC: UIViewController {
                 self.expression = ExpressionUtils.sharedInstance.addKeyToExpression(key, expression: self.expression)
                 
                 if (key == Key.keyEqual && !ExpressionUtils.sharedInstance.isInitialExpression(self.expression)){
-                    self.expression = String(UseCase.sharedInstance.evaluate(self.expression))
+                    self.expression = UseCase.sharedInstance.evaluate(self.expression)
                 }
                 self.numericScreen.value = self.expression
                 

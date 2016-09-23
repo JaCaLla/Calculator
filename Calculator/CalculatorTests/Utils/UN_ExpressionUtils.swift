@@ -23,13 +23,18 @@ class UN_ExpressionUtils: XCTestCase {
     }
     
     func test_addKeyToExpression(){
-
-        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0+"),"0+1")
-        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "0+"),"0+0.")
-        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0+"),"0+")
-        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0-"),"0+")
-        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0+"),"0-")
-        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0-"),"0-")
+        
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0"),"1")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "0"),"0.")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0"),"0")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0"),"0")
+        
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0+"),"1")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "0+"),"0.")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0+"),"0")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0-"),"0")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0+"),"0")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0-"),"0")
         
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0+1"),"0+11")
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "0+1"),"0+1.")
@@ -45,6 +50,20 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0+1."),"0+1-")
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0-1."),"0-1-")
         
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0+1.2"),"0+1.21")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "0+1.2"),"0+1.2")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0+1.2"),"0+1.2+")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0-1.2"),"0-1.2+")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0+1.2"),"0+1.2-")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0-1.2"),"0-1.2-")
+
+        
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0+1.2+"),"0+1.2+1")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "0+1.2-"),"0+1.2-0.")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0+1.2+"),"0+1.2+")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0-1.2-"),"0-1.2+")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0+1.2+"),"0+1.2-")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0-1.2-"),"0-1.2-")
     }
     
     func test_replaceLastKeyIntoExpression(){
@@ -52,89 +71,20 @@ class UN_ExpressionUtils: XCTestCase {
        XCTAssertEqual(ExpressionUtils.sharedInstance.replaceLastKeyIntoExpression(Key.keyAdd, expression: "0-"), "0+");
     }
     
-    func test_isKeyValidForExpression(){
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key0, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key1, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key2, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key3, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key4, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key5, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key6, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key7, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key8, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key9, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyAdd, expression: "0+"), false);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keySubstract, expression: "0+"), false);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyEqual, expression: "0+"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyPoint, expression: "0+"), true);
-        
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key0, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key1, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key2, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key3, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key4, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key5, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key6, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key7, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key8, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key9, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyAdd, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keySubstract, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyEqual, expression: "0+1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyPoint, expression: "0+1"), true);
-        
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key0, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key1, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key2, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key3, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key4, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key5, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key6, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key7, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key8, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key9, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyAdd, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keySubstract, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyEqual, expression: "0-1"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyPoint, expression: "0-1"), true);
-        
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key0, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key1, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key2, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key3, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key4, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key5, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key6, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key7, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key8, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key9, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyAdd, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keySubstract, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyEqual, expression: "0-1."), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyPoint, expression: "0-1."), false);
-        
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key0, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key1, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key2, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key3, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key4, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key5, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key6, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key7, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key8, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.key9, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyAdd, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keySubstract, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyEqual, expression: "0-1.4"), true);
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isValidKeyForExpression(Key.keyPoint, expression: "0-1.4"), false);
-    }
-
     func test_isInitialExpression() {
         XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpression(""),false)
         XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpression("1"),false)
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpression("0"),false)
-        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpression("0+"),true)
+        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpression("0"),true)
+        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpression("0+"),false)
         
+    }
+    
+    func test_isInitialExpressionFollowedByOperator(){
+        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpressionFollowedByOperator(""),false)
+        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpressionFollowedByOperator("1"),false)
+        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpressionFollowedByOperator("0"),false)
+        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpressionFollowedByOperator("0+"),true)
+        XCTAssertEqual(ExpressionUtils.sharedInstance.isInitialExpressionFollowedByOperator("0-"),true)
     }
     
     func test_isLastComponentNatural(){

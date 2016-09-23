@@ -11,21 +11,21 @@ import Foundation
 class UseCase {
     static let sharedInstance = UseCase()
     
-    var lastValue:String = "0+"
+    var lastValue:String = "0"
     
     private init() {
     }
     
     func clean(){
-        self.lastValue = "0+"
+        self.lastValue = "0"
     }
     
-    func evaluate(expression:String)->Double{
+    func evaluate(expression:String)->String{
 
         var expressionToEvaluate = String(expression)
         
         guard expressionToEvaluate.characters.count > 0 else{
-            return 0;
+            return "0";
         }
         
         if ExpressionUtils.sharedInstance.isEndingWithSubstract(expressionToEvaluate) ||
@@ -38,7 +38,7 @@ class UseCase {
         
         self.lastValue = String(result.stringValue)
         
-        return result.doubleValue
+        return  self.lastValue
 
     }
     

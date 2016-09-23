@@ -23,6 +23,28 @@ enum Key: Int {
     case keySubstract
     case keyEqual
     case keyPoint
+    
+    var isDigit:Bool{
+       return self.rawValue>=0 && self.rawValue<=9
+    }
+    
+    var isOperator:Bool{
+       return self.rawValue == Key.keyAdd.rawValue || self.rawValue == Key.keySubstract.rawValue
+    }
+    
+    var description:String{
+        if(self.isDigit){
+            return String(self.rawValue)
+        }else if(self.rawValue == Key.keyAdd.rawValue){
+            return "+"
+        }else if(self.rawValue == Key.keySubstract.rawValue){
+            return "-"
+        }else if(self.rawValue == Key.keyPoint.rawValue){
+            return "."
+        }else {
+            return ""
+        }
+    }
 }
 
 class Keypad: UIView {
