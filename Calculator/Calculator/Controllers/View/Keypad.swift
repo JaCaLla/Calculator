@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol KeypadDelegate: class {
+    func onKeyPressed(key: Key)
+}
+
 class Keypad: UIView {
+    
+    weak var delegate:KeypadDelegate?
     
     @IBOutlet weak var btnKey0: UIButton!{
         didSet{
@@ -130,11 +136,11 @@ class Keypad: UIView {
             return
         }
         
-        guard let _ = onKeyPress else{
+        guard let delegate = self.delegate else{
             return
         }
         
-        self.onKeyPress!(Key(rawValue: button.tag)!)
+        delegate.onKeyPressed(Key(rawValue: button.tag)!)
 
     }
     

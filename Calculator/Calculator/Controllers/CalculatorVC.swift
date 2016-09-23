@@ -20,36 +20,20 @@ class CalculatorVC: UIViewController {
     
     @IBOutlet weak var keyPad: Keypad!{
         didSet{
-            keyPad.onKeyPress = {
-                key in
-                
-                self.expression = ExpressionUtils.sharedInstance.addKeyToExpression(key, expression: self.expression)
-                
-                if (key == Key.keyEqual && !ExpressionUtils.sharedInstance.isInitialExpression(self.expression)){
-                    self.expression = UseCase.sharedInstance.evaluate(self.expression)
-                }
-                self.numericScreen.value = self.expression
-                
-            }
-            
+            self.keyPad.delegate = self
         }
     }
+
+}
+
+extension CalculatorVC: KeypadDelegate {
     
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    func onKeyPressed(key: Key){
+        self.expression = ExpressionUtils.sharedInstance.addKeyToExpression(key, expression: self.expression)
         
+        if (key == Key.keyEqual && !ExpressionUtils.sharedInstance.isInitialExpression(self.expression)){
+            self.expression = UseCase.sharedInstance.evaluate(self.expression)
+        }
+        self.numericScreen.value = self.expression
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK :  Private
-    
-    
 }
