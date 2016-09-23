@@ -19,7 +19,8 @@
 		5A1640421D93130C0028E8B2 /* Keypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1640411D93130C0028E8B2 /* Keypad.swift */; };
 		5A6B64BC1D94543C00A71067 /* ExpressionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B64BB1D94543C00A71067 /* ExpressionUtils.swift */; };
 		5A6B64BF1D9454E900A71067 /* UN_ExpressionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B64BE1D9454E900A71067 /* UN_ExpressionUtils.swift */; };
-		5AA580D81D958A0B00B12C2F /* UN_Keypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA580D71D958A0B00B12C2F /* UN_Keypad.swift */; };
+		5AA580DB1D95B1E500B12C2F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA580DA1D95B1E500B12C2F /* Key.swift */; };
+		5AA580DE1D95B24D00B12C2F /* UN_Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA580DD1D95B24D00B12C2F /* UN_Key.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,8 @@
 		5A1640411D93130C0028E8B2 /* Keypad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keypad.swift; path = Controllers/View/Keypad.swift; sourceTree = "<group>"; };
 		5A6B64BB1D94543C00A71067 /* ExpressionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpressionUtils.swift; path = Utils/ExpressionUtils.swift; sourceTree = "<group>"; };
 		5A6B64BE1D9454E900A71067 /* UN_ExpressionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UN_ExpressionUtils.swift; path = Utils/UN_ExpressionUtils.swift; sourceTree = "<group>"; };
-		5AA580D71D958A0B00B12C2F /* UN_Keypad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UN_Keypad.swift; path = Controllers/View/UN_Keypad.swift; sourceTree = "<group>"; };
+		5AA580DA1D95B1E500B12C2F /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Model/Key.swift; sourceTree = "<group>"; };
+		5AA580DD1D95B24D00B12C2F /* UN_Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UN_Key.swift; path = Model/UN_Key.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		5A1640061D92FAA40028E8B2 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				5AA580D91D95B1C800B12C2F /* Model */,
 				5A6B64BA1D94541000A71067 /* Utils */,
 				5A16403B1D9300120028E8B2 /* Controllers */,
 				5A1640351D92FAEF0028E8B2 /* UseCase */,
@@ -124,7 +127,7 @@
 		5A16401B1D92FAA40028E8B2 /* CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				5AA580D61D95899500B12C2F /* Controllers */,
+				5AA580DC1D95B24300B12C2F /* Model */,
 				5A6B64BD1D9454AF00A71067 /* Utils */,
 				5A1640381D92FBDB0028E8B2 /* UseCase */,
 				5A16401E1D92FAA40028E8B2 /* Info.plist */,
@@ -191,12 +194,20 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		5AA580D61D95899500B12C2F /* Controllers */ = {
+		5AA580D91D95B1C800B12C2F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5AA580D71D958A0B00B12C2F /* UN_Keypad.swift */,
+				5AA580DA1D95B1E500B12C2F /* Key.swift */,
 			);
-			name = Controllers;
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5AA580DC1D95B24300B12C2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5AA580DD1D95B24D00B12C2F /* UN_Key.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AA580DB1D95B1E500B12C2F /* Key.swift in Sources */,
 				5A16403D1D9300CE0028E8B2 /* CalculatorVC.swift in Sources */,
 				5A1640401D93126A0028E8B2 /* NumericScreen.swift in Sources */,
 				5A1640371D92FB5E0028E8B2 /* UseCase.swift in Sources */,
@@ -343,7 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AA580D81D958A0B00B12C2F /* UN_Keypad.swift in Sources */,
+				5AA580DE1D95B24D00B12C2F /* UN_Key.swift in Sources */,
 				5A6B64BF1D9454E900A71067 /* UN_ExpressionUtils.swift in Sources */,
 				5A16403A1D92FCA20028E8B2 /* UN_UseCase.swift in Sources */,
 			);

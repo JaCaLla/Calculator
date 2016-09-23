@@ -10,7 +10,7 @@ import XCTest
 
 @testable import Calculator;
 
-class UN_Keypad: XCTestCase {
+class UN_Key: XCTestCase {
 
     override func setUp() {
         super.setUp()
