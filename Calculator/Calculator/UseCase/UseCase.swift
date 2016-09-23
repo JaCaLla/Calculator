@@ -11,13 +11,7 @@ import Foundation
 class UseCase {
     static let sharedInstance = UseCase()
     
-    var lastValue:String = "0"
-    
     private init() {
-    }
-    
-    func clean(){
-        self.lastValue = "0"
     }
     
     func evaluate(expression:String)->String{
@@ -34,12 +28,9 @@ class UseCase {
             expressionToEvaluate = expressionToEvaluate.substringToIndex(expressionToEvaluate.endIndex.predecessor())
         }
         
-        let result = NSExpression(format: "\(self.lastValue)" + expressionToEvaluate).expressionValueWithObject(nil, context: nil) as! NSNumber
+        let result = NSExpression(format: expressionToEvaluate).expressionValueWithObject(nil, context: nil) as! NSNumber
         
-        self.lastValue = String(result.stringValue)
-        
-        return  self.lastValue
-
+        return  String(result.stringValue)
     }
     
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -24,8 +24,11 @@
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWk-j6-jgg">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey7"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="7"/>
+                                        <state key="normal" title="7">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="em7-39-XDC"/>
                                         </connections>
@@ -33,17 +36,23 @@
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u9-gy-EaZ">
                                         <rect key="frame" x="150" y="0.0" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey8"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="8"/>
+                                        <state key="normal" title="8">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="l2g-CX-l3Q"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vql-Dq-kXz">
                                         <rect key="frame" x="450" y="0.0" width="150" height="105"/>
-                                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKeyAdd"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="+"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="RRT-G4-7Sm"/>
                                         </connections>
@@ -51,8 +60,11 @@
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVQ-ds-UZl">
                                         <rect key="frame" x="0.0" y="105" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey4"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="4"/>
+                                        <state key="normal" title="4">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="JcB-24-2Fa"/>
                                         </connections>
@@ -60,8 +72,11 @@
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbh-d9-BiE">
                                         <rect key="frame" x="150" y="105" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="5"/>
+                                        <state key="normal" title="5">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="Xax-26-cTk"/>
                                         </connections>
@@ -69,17 +84,23 @@
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPr-EA-yGh">
                                         <rect key="frame" x="300" y="105" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey6"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="6"/>
+                                        <state key="normal" title="6">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="aaQ-WH-HTL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e2-vn-rew">
                                         <rect key="frame" x="450" y="105" width="150" height="105"/>
-                                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKeySubstract"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="-"/>
+                                        <state key="normal" title="-">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="ldu-fb-9rW"/>
                                         </connections>
@@ -87,8 +108,11 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGe-Pz-Itn">
                                         <rect key="frame" x="0.0" y="210" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey1"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="1"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="35U-GW-RjZ"/>
                                         </connections>
@@ -96,8 +120,11 @@
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqa-6A-otG">
                                         <rect key="frame" x="150" y="210" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey2"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="2"/>
+                                        <state key="normal" title="2">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="S6J-qS-EbJ"/>
                                         </connections>
@@ -105,17 +132,23 @@
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w0-Ww-khE">
                                         <rect key="frame" x="300" y="210" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="3"/>
+                                        <state key="normal" title="3">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="m1U-rJ-qye"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-BV-3o6">
                                         <rect key="frame" x="450" y="210" width="150" height="210"/>
-                                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKeyEqual"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="="/>
+                                        <state key="normal" title="=">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="cn1-mW-DJ1"/>
                                         </connections>
@@ -123,17 +156,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4g-Ii-Xsg">
                                         <rect key="frame" x="0.0" y="315" width="300" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="0"/>
+                                        <state key="normal" title="0">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
-                                            <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpOutside" id="nuW-D1-HTK"/>
+                                            <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="nPo-yU-JbE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZF-52-vtK">
                                         <rect key="frame" x="300" y="315" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKeyPoint"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="."/>
+                                        <state key="normal" title=".">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="iDw-oV-mXa"/>
                                         </connections>
@@ -141,8 +180,11 @@
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcY-rR-UmX">
                                         <rect key="frame" x="300" y="0.0" width="150" height="105"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btnKey9"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                        <state key="normal" title="9"/>
+                                        <state key="normal" title="9">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="keyPressed:" destination="Gu2-Sk-nW2" eventType="touchUpInside" id="lMd-Fb-nXg"/>
                                         </connections>
@@ -231,18 +273,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DS6-VS-PwD" customClass="NumericScreen" customModule="Calculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="182"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smL-TB-BTH">
-                                        <rect key="frame" x="20" y="0.0" width="560" height="182"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="130"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.14999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="smL-TB-BTH">
+                                        <rect key="frame" x="20" y="20" width="560" height="152"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="lblValue"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="120"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="smL-TB-BTH" secondAttribute="trailing" constant="20" id="Xiy-WM-Jmg"/>
-                                    <constraint firstAttribute="bottom" secondItem="smL-TB-BTH" secondAttribute="bottom" id="gjz-ET-zSH"/>
-                                    <constraint firstItem="smL-TB-BTH" firstAttribute="top" secondItem="DS6-VS-PwD" secondAttribute="top" id="nGr-lR-YHo"/>
+                                    <constraint firstAttribute="bottom" secondItem="smL-TB-BTH" secondAttribute="bottom" constant="10" id="gjz-ET-zSH"/>
+                                    <constraint firstItem="smL-TB-BTH" firstAttribute="top" secondItem="DS6-VS-PwD" secondAttribute="top" constant="20" id="nGr-lR-YHo"/>
                                     <constraint firstItem="smL-TB-BTH" firstAttribute="leading" secondItem="DS6-VS-PwD" secondAttribute="leading" constant="20" id="zZv-R7-aV5"/>
                                 </constraints>
                                 <connections>

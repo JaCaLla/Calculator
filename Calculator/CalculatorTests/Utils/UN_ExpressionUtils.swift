@@ -11,7 +11,7 @@ import XCTest
 @testable import Calculator;
 
 class UN_ExpressionUtils: XCTestCase {
-
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -56,7 +56,7 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0-1.2"),"0-1.2+")
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0+1.2"),"0+1.2-")
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0-1.2"),"0-1.2-")
-
+        
         
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0+1.2+"),"0+1.2+1")
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "0+1.2-"),"0+1.2-0.")
@@ -64,11 +64,28 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "0-1.2-"),"0-1.2+")
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0+1.2+"),"0+1.2-")
         XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "0-1.2-"),"0-1.2-")
+        
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key1, expression: "0"),"1")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key0, expression: "1"),"10")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key2, expression: "10"),"102")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyAdd, expression: "102"),"102+")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key3, expression: "102+"),"102+3")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key4, expression: "102+3"),"102+34")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key5, expression: "102+34"),"102+345")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "102+345"),"102+345-")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key6, expression: "102+345-"),"102+345-6")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key7, expression: "102+345-6"),"102+345-67")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keySubstract, expression: "102+345-67"),"102+345-67-")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key8, expression: "102+345-67-"),"102+345-67-8")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key9, expression: "102+345-67-8"),"102+345-67-89")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.keyPoint, expression: "102+345-67-8"),"102+345-67-8.")
+        XCTAssertEqual(ExpressionUtils.sharedInstance.addKeyToExpression(Key.key5, expression: "102+345-67-8."),"102+345-67-8.5")
+        
     }
     
     func test_replaceLastKeyIntoExpression(){
-       XCTAssertEqual(ExpressionUtils.sharedInstance.replaceLastKeyIntoExpression(Key.keySubstract, expression: "0+"), "0-");
-       XCTAssertEqual(ExpressionUtils.sharedInstance.replaceLastKeyIntoExpression(Key.keyAdd, expression: "0-"), "0+");
+        XCTAssertEqual(ExpressionUtils.sharedInstance.replaceLastKeyIntoExpression(Key.keySubstract, expression: "0+"), "0-");
+        XCTAssertEqual(ExpressionUtils.sharedInstance.replaceLastKeyIntoExpression(Key.keyAdd, expression: "0-"), "0+");
     }
     
     func test_isInitialExpression() {
@@ -112,7 +129,7 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.isLastComponentInteger("12+3"),true)
         XCTAssertEqual(ExpressionUtils.sharedInstance.isLastComponentInteger("12+31"),true)
     }
-
+    
     func test_isLastComponentReal(){
         XCTAssertEqual(ExpressionUtils.sharedInstance.isLastComponentReal("12+"),false)
         XCTAssertEqual(ExpressionUtils.sharedInstance.isLastComponentReal("1-"),false)
@@ -188,7 +205,7 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.isIntegerComponent("-1."),false);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isIntegerComponent("5.2"),false);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isIntegerComponent("-0.5"),false);
- 
+        
         XCTAssertEqual(ExpressionUtils.sharedInstance.isIntegerComponent("-5"),true);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isIntegerComponent("5"),true);
     }
@@ -202,9 +219,9 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.isNaturalComponent("-5"),false);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isNaturalComponent("5.2"),false);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isNaturalComponent("-0.5"),false);
-
+        
         XCTAssertEqual(ExpressionUtils.sharedInstance.isNaturalComponent("5"),true);
-
+        
     }
     
     func test_isDigitKey(){
@@ -223,7 +240,7 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.isDigitKey(Key.keyEqual),false);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isDigitKey(Key.keyPoint),false);
     }
-
+    
     func test_isAddKey(){
         XCTAssertEqual(ExpressionUtils.sharedInstance.isAddKey(Key.key0),false);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isAddKey(Key.key1),false);
@@ -291,12 +308,12 @@ class UN_ExpressionUtils: XCTestCase {
         XCTAssertEqual(ExpressionUtils.sharedInstance.isPointKey(Key.keyEqual),false);
         XCTAssertEqual(ExpressionUtils.sharedInstance.isPointKey(Key.keyPoint),true);
     }
-
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
 }

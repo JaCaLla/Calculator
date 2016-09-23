@@ -23,85 +23,35 @@ class UN_UseCase: XCTestCase {
     }
 
     func test_evaluate() {
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate(""),"0")
         XCTAssertEqual(UseCase.sharedInstance.evaluate("12+65-7"),"70")
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("+16-2"),"84")
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("-4-2"),"78")
-        UseCase.sharedInstance.clean()
-        XCTAssertEqual(UseCase.sharedInstance.evaluate(""),"0");
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("12+65-7"),"70")
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("+16-2"),"84")
-        XCTAssertEqual(UseCase.sharedInstance.evaluate("-4-2"),"78")
-        
-        UseCase.sharedInstance.clean()
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("70+16-2"),"84")
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("84-4-2"),"78")
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-"),"0")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-1."),"-1")
-
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-1+"),"-1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+"),"0")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-"),"0")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+1"),"1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2"),"-2")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+13"),"13")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-24"),"-24")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+1."),"1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2."),"-2")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+1.1"),"1.1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2.2"),"-2.2")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+1.1+"),"1.1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2.2+"),"-2.2")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+1.1-"),"1.1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2.2-"),"-2.2")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2.2-2"),"-4.2")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+1.1+10"),"11.1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2.2+20"),"17.8")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2.2-2-"),"-4.2")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0+1.1+10."),"11.1")
-        
-        UseCase.sharedInstance.clean()
         XCTAssertEqual(UseCase.sharedInstance.evaluate("0-2.2+20+0.2"),"18")
+        XCTAssertEqual(UseCase.sharedInstance.evaluate("102+345-67-89.5"),"290.5")
+        
     }
     
     
