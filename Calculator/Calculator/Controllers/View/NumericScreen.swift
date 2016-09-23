@@ -16,7 +16,7 @@ class NumericScreen: UIView {
         }
     }
  
-    @IBOutlet private weak var lblValue: UILabel!
+    @IBOutlet fileprivate weak var lblValue: UILabel!
     
     
 }

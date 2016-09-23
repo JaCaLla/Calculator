@@ -28,7 +28,7 @@ class CalculatorVC: UIViewController {
 
 extension CalculatorVC: KeypadDelegate {
     
-    func onKeyPressed(key: Key){
+    func onKeyPressed(_ key: Key){
         self.expression = ExpressionUtils.sharedInstance.addKeyToExpression(key, expression: self.expression)
         
         if (key == Key.keyEqual && !ExpressionUtils.sharedInstance.isInitialExpression(self.expression)){

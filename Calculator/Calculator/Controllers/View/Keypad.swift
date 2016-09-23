@@ -9,7 +9,7 @@
 import UIKit
 
 protocol KeypadDelegate: class {
-    func onKeyPressed(key: Key)
+    func onKeyPressed(_ key: Key)
 }
 
 class Keypad: UIView {
@@ -20,7 +20,7 @@ class Keypad: UIView {
         didSet{
             btnKey0.tag = Key.key0.rawValue
             btnKey0.layer.borderWidth = 1
-            btnKey0.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey0.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -28,7 +28,7 @@ class Keypad: UIView {
         didSet{
             btnKey1.tag = Key.key1.rawValue
             btnKey1.layer.borderWidth = 1
-            btnKey1.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey1.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -36,7 +36,7 @@ class Keypad: UIView {
         didSet{
             btnKey2.tag = Key.key2.rawValue
             btnKey2.layer.borderWidth = 1
-            btnKey2.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey2.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -44,7 +44,7 @@ class Keypad: UIView {
         didSet{
             btnKey3.tag = Key.key3.rawValue
             btnKey3.layer.borderWidth = 1
-            btnKey3.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey3.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -52,7 +52,7 @@ class Keypad: UIView {
         didSet{
             btnKey4.tag = Key.key4.rawValue
             btnKey4.layer.borderWidth = 1
-            btnKey4.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey4.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -60,7 +60,7 @@ class Keypad: UIView {
         didSet{
             btnKey5.tag = Key.key5.rawValue
             btnKey5.layer.borderWidth = 1
-            btnKey5.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey5.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -68,7 +68,7 @@ class Keypad: UIView {
         didSet{
             btnKey6.tag = Key.key6.rawValue
             btnKey6.layer.borderWidth = 1
-            btnKey6.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey6.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -76,7 +76,7 @@ class Keypad: UIView {
         didSet{
             btnKey7.tag = Key.key7.rawValue
             btnKey7.layer.borderWidth = 1
-            btnKey7.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey7.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -84,7 +84,7 @@ class Keypad: UIView {
         didSet{
             btnKey8.tag = Key.key8.rawValue
             btnKey8.layer.borderWidth = 1
-            btnKey8.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey8.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -92,7 +92,7 @@ class Keypad: UIView {
         didSet{
             btnKey9.tag = Key.key9.rawValue
             btnKey9.layer.borderWidth = 1
-            btnKey9.layer.borderColor = UIColor.grayColor().CGColor
+            btnKey9.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -100,7 +100,7 @@ class Keypad: UIView {
         didSet{
             btnKeyAdd.tag = Key.keyAdd.rawValue
             btnKeyAdd.layer.borderWidth = 1
-            btnKeyAdd.layer.borderColor = UIColor.orangeColor().CGColor
+            btnKeyAdd.layer.borderColor = UIColor.orange.cgColor
         }
     }
     
@@ -108,7 +108,7 @@ class Keypad: UIView {
         didSet{
             btnKeySubstract.tag = Key.keySubstract.rawValue
             btnKeySubstract.layer.borderWidth = 1
-            btnKeySubstract.layer.borderColor = UIColor.grayColor().CGColor
+            btnKeySubstract.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -116,7 +116,7 @@ class Keypad: UIView {
         didSet{
             btnKeyEqual.tag = Key.keyEqual.rawValue
             btnKeyEqual.layer.borderWidth = 1
-            btnKeyEqual.layer.borderColor = UIColor.grayColor().CGColor
+            btnKeyEqual.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
@@ -124,24 +124,14 @@ class Keypad: UIView {
         didSet{
             btnKeyPoint.tag = Key.keyPoint.rawValue
             btnKeyPoint.layer.borderWidth = 1
-            btnKeyPoint.layer.borderColor = UIColor.grayColor().CGColor
+            btnKeyPoint.layer.borderColor = UIColor.gray.cgColor
         }
     }
     
     var onKeyPress: ((Key) -> Void)?
     
-    @IBAction func keyPressed(sender: AnyObject) {
-        
-        guard let button = sender as? UIButton else {
-            return
-        }
-        
-        guard let delegate = self.delegate else{
-            return
-        }
-        
-        delegate.onKeyPressed(Key(rawValue: button.tag)!)
-
+    @IBAction func keyPressed(_ sender: UIButton) {
+        self.delegate!.onKeyPressed(Key(rawValue: sender.tag)!)
     }
     
 }

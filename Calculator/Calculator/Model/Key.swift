@@ -39,10 +39,8 @@ enum Key: Int {
             return "+"
         }else if(self.rawValue == Key.keySubstract.rawValue){
             return "-"
-        }else if(self.rawValue == Key.keyPoint.rawValue){
-            return "."
         }else {
-            return ""
+            return "."
         }
     }
 }
